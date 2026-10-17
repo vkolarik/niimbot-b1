@@ -14,6 +14,23 @@ you do use a tagged roll.
 > Everything here is at your own risk. You can use the Python client with
 > original (tagged) rolls without touching the firmware at all.
 
+## Tested on real hardware
+
+Everything in this repo was developed and tested on a **physical Niimbot B1**,
+hardware **6.01**, firmware **6.19** (the only version the firmware patch
+targets). The final patched firmware has been flashed onto that device and
+verified in practice:
+
+* original (tagged) rolls print **fast and full**, exactly like stock firmware;
+* third-party rolls **without the chip** print at **full darkness** and land on
+  a **single label right away** after closing the cover — no wasted label.
+
+During development the printer was flashed back to the **unmodified stock
+firmware** many times (and again at the end), and the rollback has worked every
+single time. In practice there is not much to be afraid of: keep a copy of
+`B1_6.19_stock.bin` — the build requires it anyway — and you always have a
+straightforward way back to the original state.
+
 ## Quick start — print from Python (no firmware change)
 
 Requirements: Python 3.10+, and either `pyserial` (USB) or `bleak` (Bluetooth).
