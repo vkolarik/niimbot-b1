@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "niimbot-b1"
+version = "0.1.0"
+description = "Minimal client for the Niimbot B1 label printer (USB serial and Bluetooth LE), plus a documented firmware patch for printing third-party labels without an RFID chip."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["niimbot", "b1", "label-printer", "thermal-printer", "rfid", "bluetooth-le"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: System :: Hardware",
+]
+dependencies = ["Pillow>=9.0"]
+
+[project.optional-dependencies]
+usb = ["pyserial>=3.5"]
+ble = ["bleak>=0.21"]
+all = ["pyserial>=3.5", "bleak>=0.21"]
+
+[project.scripts]
+niimbot-b1 = "niimbot_b1.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["niimbot_b1"]

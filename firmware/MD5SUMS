@@ -1,0 +1,9 @@
+# MD5 checksums for the firmware build
+#
+# INPUTS — you obtain these yourself, then verify they match before building:
+B1_6.19_stock.bin           fd9efd1441b5f05ca46c310b8d162dc1   # https://fw.niim.blue/stable/B1/B1_6.19.bin
+B1_6.19_density_coeff.bin   1553badbc6b1b53cb36919786149e2de   # lotabout/niimbot, branch niimbot-hw6.01
+#
+# OUTPUTS — produced by `python firmware/build_patched.py`:
+B1_6.19_density_align3.bin  78dcde4bd7a4a21dfb965b40d7607cc0   # intermediate (gap seek without tag)
+B1_6.19_density_align7.bin  540ef521d7416cfe1eb561b6effcb0b4   # FINAL: fast with tag, full/dark without

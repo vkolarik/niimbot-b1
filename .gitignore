@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.uv/
+build/
+dist/
+
+# Local firmware inputs/outputs (obtain inputs yourself, outputs are reproducible)
+firmware/*.bin
+
+# Generated reverse-engineering dump
+stock.asm
