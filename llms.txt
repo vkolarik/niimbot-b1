@@ -1,0 +1,35 @@
+# Niimbot B1 — print third-party labels without the RFID chip
+
+> A Python client (USB serial + Bluetooth LE) and a reproducible
+> custom-firmware patch for the Niimbot B1 thermal label printer.
+
+## What this repository is
+
+- **Python client** — print images, read printer/RFID status, calibrate, over
+  USB or Bluetooth LE (`niimbot_b1/`, `examples/`).
+- **Custom-firmware patch** — a reproducible build that bypasses the RFID chip
+  check, restores full heating without a chip, auto-aligns the first label
+  after the cover closes, and keeps fast printing with original tagged rolls
+  (`firmware/build_patched.py`, `firmware/README.md`).
+- **Reverse engineering** — a full write-up and Capstone tooling
+  (`docs/firmware-analysis.md`, `tools/re/`).
+
+## Key facts
+
+- Target device: Niimbot B1, hardware 6.01, firmware 6.19.
+- Print head: 384 px = 48 mm, 203 dpi (8 px/mm).
+- Protocol: `55 55 <cmd> <len> <payload...> <checksum> aa aa`, USB serial at
+  115200 baud, or BLE service `e7810a71-73ae-499d-8c15-faa9aef0c3f2`.
+- The firmware patch is built from source from two inputs the user obtains
+  themselves (stock firmware from fw.niim.blue, and the lotabout/niimbot
+  community patch). No firmware binaries are distributed.
+- License: MIT (code and documentation).
+
+## Documents
+
+- [README.md](README.md) — overview, quick start, FAQ.
+- [firmware/README.md](firmware/README.md) — obtain inputs, build, flash, verify, roll back.
+- [docs/protocol.md](docs/protocol.md) — serial/BLE protocol reference.
+- [docs/bluetooth.md](docs/bluetooth.md) — Bluetooth LE usage and macOS permissions.
+- [docs/third-party-labels.md](docs/third-party-labels.md) — what the RFID chip does and your options without it.
+- [docs/firmware-analysis.md](docs/firmware-analysis.md) — reverse-engineering notes.

@@ -1,10 +1,19 @@
-# Niimbot B1 — print from Python, and use any label roll
+# Niimbot B1 — print any label roll, with or without the RFID chip
 
-A minimal, dependency-light client for the **Niimbot B1** label printer
-(USB serial and Bluetooth LE), plus a documented, **reproducible firmware
-patch** that lets the printer use third-party label rolls **without the RFID
-chip** — full darkness, correct first-label alignment, and original speed when
-you do use a tagged roll.
+A **Python client** (USB serial + Bluetooth LE) and a reproducible
+**custom-firmware patch** for the **Niimbot B1** thermal label printer. It lets
+you print **third-party labels without the RFID chip** — full darkness, correct
+first-label alignment, and original speed when you do use a tagged roll.
+Reverse-engineered, built from source, and tested on real hardware.
+
+> **At a glance**
+>
+> * **Printer:** Niimbot B1, hardware 6.01 / firmware 6.19
+> * **Problem it solves:** stock firmware rejects cheap third-party labels with
+>   an RFID chip check (`0x14`) and barely heats the head without a chip
+> * **Fix:** custom firmware (RFID bypass + full heat + auto-align) + Python client
+> * **Transport:** USB serial and Bluetooth LE
+> * **No chip required** · **right to repair** · **MIT licensed**
 
 * No vendor app, no cloud, no external library for the protocol itself.
 * The firmware patch is **built from source** (two small patch scripts), never
